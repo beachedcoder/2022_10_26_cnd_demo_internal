@@ -9,7 +9,7 @@ on:
 
 env:
   RUN_NUMBER: ${{ github.run_number }}
-  IMAGE: external
+  IMAGE: internal
 
 jobs:
   build-test_node_project:
@@ -47,7 +47,7 @@ jobs:
       - run: npm install
 
       - name: Login to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
